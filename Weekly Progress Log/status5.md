@@ -4,17 +4,16 @@
 How might we help disadvantaged youth and young professionals gain skills required from organizations/companies to get a job?
 
 ### Week behind:
- * Reviewed Sprint feedback 
- * Developed survey for separate target users and started getting limited responses and feedback on the survey (we will share the survey with you Sachin/Chris shortly)
- * Aligned on a development process and weekly process to get better outcomes on a weekly basis (link here) 
- * Build initial architecture diagram (to be reviewed further this coming week). Link here
- * Met with Faculty advisor (Tapan Parikh) regarding the project. Suggested to look into apprenticeship model used in other countries 
- * Worked on personal and team goals
+ * Finalized user survey for both "mentees" (here) and mentors (here). Started distributing the survey to get feedback from      actual users
+ * Initiated collection of feedback on lo-fi demo (here)
+ * Received feedback in our first crit session (here)
+ * Build technical architecture diagram for discussion with Bloomberg technical team (here)
+ * Built initial storyboard; after reviewing further results, will align storyboard to build UX
 
 ### Week ahead:
- * Reach broader audience for user research to get feedback on assumptions made so far
- * Continue outreach to individuals and organizations to conduct user research and go deeper on the pain points and solution to build
- * Continue to review and update architecture diagram  
+ * Review findings of user research/surveys
+ * Finalize initial storyboard and UX
+ * Update product narrative and deck
 
 ### Risks:
- * Need to get statical significant amount of respondents and/or good level of expert feedback from user research to hone in on solution
+ * Need to get statical significant amount of respondents for the specific target of disadvantaged youth
