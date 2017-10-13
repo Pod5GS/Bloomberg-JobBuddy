@@ -1,2 +1,5 @@
 # These are Mac .DS_Store files
 .DS_Store
+
+# These are ide related files
+.idea
