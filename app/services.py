@@ -16,6 +16,7 @@ def getRecommendation(user_profile, k):
     test_list = []
     # mentor_profiles = []
     # read mentor profile
+    print user_profile
     with open(ffm_path + 'data/mentor_profile.csv') as mentor_f:
         reader = csv.reader(mentor_f, delimiter=',')
         for row in reader:
@@ -71,7 +72,6 @@ def getRecommendation(user_profile, k):
             value = mentor_profiles[recommended_mentor_id][idx]
             recommended_mentor_profile[key] = value
         recommended_mentors.append(recommended_mentor_profile)
-
     return recommended_mentors
 
 

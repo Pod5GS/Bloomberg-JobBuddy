@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from app import app
 from services import getRecommendation
 
@@ -14,5 +14,5 @@ def index():
 def recommend():
     data = request.get_json()
     user_profile = [data['menteeId'], data['menteeGender'], data['menteeEducation'], data['menteeLocation'], data['menteeInterests']]
-    results = getRecommendation(user_profile, 5)
-    print results
+    mentors = getRecommendation(user_profile, 3)
+    return jsonify(results=mentors)
