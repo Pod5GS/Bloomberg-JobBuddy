@@ -136,14 +136,15 @@
             data: JSON.stringify(data),
             success: function (data) {
                 $('#skillsetsArea').hide();
+                var names = ['Willie', 'Adam', 'Mariana'];
                 for (var i = 0; i < 3; i++){
                     $('#mentors').append('<div class="col-md-2 col-sm-2 col-xs-12">\n' +
                         '            <img src="static/images/mentor' + (i + 1) + '.png" alt="" class="img-rounded img-responsive">\n' +
                         '        </div>\n' +
                         '        <div class="col-md-2 col-sm-2 col-xs-12">\n' +
-                        '            <h3>Willie</h3>\n' +
-                        '            <p><strong>CS Student</strong></p>\n' +
-                        '            <p>' + data.results[i].mentorLocation + ',' + data.results[i].mentorTitle + '</p>\n' +
+                        '            <h3>' + names[i] + '</h3>\n' +
+                        '            <p><strong>' + data.results[i].mentorTitle + '</strong></p>\n' +
+                        '            <p>' + data.results[i].mentorLocation + '</p>\n' +
                         '            <p style="word-wrap: break-word;">' + data.results[i].mentorSkillsets + '</p>\n' +
                         '        </div>')
                 }
