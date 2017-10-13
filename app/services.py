@@ -57,7 +57,7 @@ def getRecommendation(user_profile, k):
     print cmd_transformation
     subprocess.call(cmd_transformation, shell=True)
 
-    cmd_prediction = 'sh {ffm_path}ffm-predict {ffm_path}te.ffm {ffm_path}/model {ffm_path}out_te.csv'.format(
+    cmd_prediction = './{ffm_path}ffm-predict {ffm_path}te.ffm {ffm_path}model {ffm_path}out_te.csv'.format(
         ffm_path=FFM_PATH)
     subprocess.call(cmd_prediction, shell=True)
 
