@@ -2,21 +2,66 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Apple Music Bubble UI</title>
-
-
+    <title>HomePage</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
-
-
+    <style>
+        ul > li > a{
+            color: white;
+        }
+    </style>
 </head>
-
-<body>
-
+<body style="overflow: scroll">
+<nav class="navbar navbar-expand-lg" id="mainNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="static/images/logo.png"/></a>
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#portfolio">Good Evening, Ana! |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">Progress Board |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Learning Center |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Setting |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h3 style="margin-top:30px; margin-left:20px; font-size: 20px;">&lt;&lt;Back to Learning Center Setting</h3>
+<div style="margin-top: 20px; margin-left: 80px; margin-right: 80px;">
+    <h2 style="float: left;">Pick Up the Skills</h2>
+    <img style="float: right; max-width: 30%;" src="static/images/flat.png"/>
+</div>
+<div id="board"></div>
+<button id="recommend" class="btn btn-lg" style="margin: 0 auto; display: block; background: black; color: white; margin-bottom: 20px;">Start Learning</button>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.js'></script>
-
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/index.js"></script>
-
+<script>
+    $('#recommend').click(function () {
+        var interests = '';
+        for (var i = 0; i < activedata.length; i++){
+            interests += activedata[i] + '/'
+        }
+        
+    });
+</script>
 </body>
 </html>

@@ -1,3 +1,14 @@
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
 var data = [
     {name: "Python", color: 0xff2c55},
     {name: "Ruby", color: 0xff2c55},
@@ -14,11 +25,11 @@ var data = [
 
 var zoom = 100;
 var balls = [];
-
-var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
+var activedata = [];
+var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight / 1.5, {
     transparent: true, antialias: true
 });
-document.body.appendChild(renderer.view);
+document.getElementById("board").appendChild(renderer.view);
 
 
 var world = new p2.World({gravity: [0, 0]});
@@ -50,6 +61,7 @@ var Ball = function (t, c, r, x) {
         this.circle.hitArea = new PIXI.Circle(0, 0, 1);
         this.circle.scale.x = this.circle.scale.y = this.radius;
         this.el.addChild(this.circle);
+        this.text = t;
 
         stage.addChild(this.el);
 
@@ -107,6 +119,7 @@ var Ball = function (t, c, r, x) {
                 onComplete: this.updateRadius.bind(this)
             });
             this.iscliked = false;
+            activedata.remove(this.text);
         } else {
             this.radius = this.baseRadius + 0.2;
             TweenMax.to(this.circle.scale, 0.2, {
@@ -116,6 +129,7 @@ var Ball = function (t, c, r, x) {
                 onComplete: this.updateRadius.bind(this)
             });
             this.iscliked = true;
+            activedata.push(this.text);
         }
     }
 
