@@ -60,7 +60,23 @@
         for (var i = 0; i < activedata.length; i++){
             interests += activedata[i] + '/'
         }
-        
+        data = {
+            "menteeId": 0,
+            "menteeGender": "female",
+            "menteeEducation": "highschool",
+            "menteeLocation": "NY",
+            "menteeInterests": interests
+        };
+        $.ajax({
+            type: "POST",
+            url: "/recommend",
+            Accept: "application/json",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function (data) {
+                alert(data);
+            }
+        });
     });
 </script>
 </body>
