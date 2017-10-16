@@ -1,4 +1,14 @@
-body{
-  margin: 0;
-  overflow: hidden;
+body {
+    margin: 0;
+    overflow: hidden;
+}
+#mainNav {
+    background: black;
+}
+.scheduler .btn{
+    border-radius: 0;
+}
+.scheduler .btn:active{
+    background: black;
+    color: white;
 }
