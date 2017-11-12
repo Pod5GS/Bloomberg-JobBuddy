@@ -9,6 +9,13 @@ from services import getRecommendation
 def index():
     return render_template("index.html")
 
+@app.route('/signup')
+def getsignup():
+    return render_template("signup.html")
+
+@app.route('/mentormatch')
+def matchmentor():
+    return render_template("mentormatch.html")
 
 @app.route('/recommend', methods=['POST'])
 def recommend():

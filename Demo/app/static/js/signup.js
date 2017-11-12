@@ -26,7 +26,7 @@ var data = [
 var zoom = 100;
 var balls = [];
 var activedata = [];
-var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight / 1.5, {
+var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
     transparent: true, antialias: true
 });
 document.getElementById("board").appendChild(renderer.view);
@@ -164,3 +164,14 @@ function animate() {
 }
 
 animate();
+
+function gotocareer() {
+    $('#contact').hide();
+    $('#step1').attr('class', 'btn btn-default btn-circle');
+    $('#step2').attr('class', 'btn btn-primary btn-circle');
+    $('#skillsetsArea').show();
+}
+
+function gomatching() {
+
+}
