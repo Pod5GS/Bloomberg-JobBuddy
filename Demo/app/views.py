@@ -10,12 +10,16 @@ def index():
     return render_template("index.html")
 
 @app.route('/signup')
-def getsignup():
+def gosignup():
     return render_template("signup.html")
 
 @app.route('/mentormatch')
-def matchmentor():
+def gomatchmentor():
     return render_template("mentormatch.html")
+
+@app.route('/events')
+def goevents():
+    return render_template("events.html")
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
