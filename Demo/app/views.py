@@ -21,6 +21,22 @@ def gomatchmentor():
 def goevents():
     return render_template("events.html")
 
+@app.route('/events2')
+def goevents2():
+    return render_template("events2.html")
+
+@app.route('/schedule')
+def goschedule():
+    return render_template("schedule.html")
+
+@app.route('/videochat')
+def govideochat():
+    return render_template("videochat.html")
+
+@app.route('/endchat')
+def goendchat():
+    return render_template("endchat.html")
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     data = request.get_json()

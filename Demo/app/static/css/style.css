@@ -39,22 +39,22 @@ a{
     color: white;
 }
 a:hover, a:focus{
-    color: #5fcf80;
+    color: #ffec4d;
 }
 /***********************************
 Navigation bar
 ************************************/
 .navbar-default .navbar-brand {
-    color: #5FCF80;
+    color: #ffec4d;
 }
 .navbar-default {
-    background: white;
+    background: black;
 }
 .course-text{
     padding: 84px;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #717f86;
+    color: white;
     font-size: 14px;
     font-weight: 700;
 }
@@ -65,25 +65,25 @@ Navigation bar
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover
 {
-	color: #5FCF80;
+	color: #ffec4d;
 }
 
 .navbar-nav .active a{
     background: none !important;
-    color: #5FCF80 !important;
+    color: #ffec4d !important;
     outline: none;
 }
 
 .btn-trial a{
-	background-color: #5FCF80;
+	background-color: #ffec4d;
 	border-radius: 25px;
 	color: #ffffff !important;
-	border: 1px solid #5FCF80;
+	border: 1px solid #ffec4d;
 }
 .btn-trial a:hover, .btn-trial a:focus{
-	border: 1px solid #5FCF80;
+	border: 1px solid #ffec4d;
 	background-color: #fff;
-	color: #5FCF80 !important;
+	color: #ffec4d !important;
 }
 .navbar-default .navbar-brand {
     font-family: 'Dosis', sans-serif !important;
@@ -92,7 +92,6 @@ Navigation bar
     padding: 0px;
     height: inherit;
     font-size: 36px;
-    margin: 20px 0px;
 }
 .navbar-default .navbar-brand span{
 	font-weight: 100 !important;
@@ -110,9 +109,8 @@ Navigation bar
 Banner
 ************************************/
 .banner{
-	background: url('../img/backgroundPic.png') no-repeat center top;
+	background: url('../img/banner.png') no-repeat center top;
     background-size: cover;
-	min-height: 580px;
     position: relative;
 }
 .banner-text{
@@ -130,7 +128,7 @@ Banner
     color: #fff;
 }
 .text-border{
-	border: 5px solid #5FCF80;
+	border: 5px solid #ffec4d;
 	display: inline-block;
 	margin-top: 150px;
 }
@@ -222,8 +220,8 @@ Banner
     font-size: 16px;
 }
 .quote .btn{
-    background-color: #5fcf80;
-    color: #fff;
+    background-color: #ffec4d;
+    color: black;
     -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -231,7 +229,7 @@ Banner
 }
 .quote .btn:hover, .quote .btn:focus{
     background-color: #fff;
-    color: #5fcf80;
+    color: black;
     border-color: #fff;
      -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -260,7 +258,7 @@ h2{
 }
 .fea i {
     font-size: 39px;
-    color: #5FCF80;
+    color: #ffec4d;
     margin-top: 7px;
 }
 .heading h4 {
@@ -279,7 +277,7 @@ h2{
 ************************************/
 .orga-stru
 {
-    background-color: #5FCF80;
+    background-color: #ffec4d;
     width: 109px;
     height: auto;
     padding: 10px 10px 25px 10px;
@@ -313,7 +311,7 @@ h3.det-txt {
     text-transform: uppercase;
 }
 h4.sm-txt {
-    color: #5FCF80;
+    color: #ffec4d;
     font-size: 24px;
 }
 p.det-p {
@@ -344,7 +342,7 @@ Cta
     min-width: 280px;
     margin-left: -4px;
     margin-bottom: 2px;
-    border: 1px solid #5fcf80;
+    border: 1px solid #ffec4d;
     background-color: rgb(247, 247, 247);
     border-radius: 30px 0px 0px 30px;
 }
@@ -352,7 +350,7 @@ Cta
     font-size: 18px;
     text-transform: capitalize;
     color: #fff;
-    background-color: #5fcf80;
+    background-color: #ffec4d;
     border: 2px solid #fff;
     padding: 14px 30px;
     margin-left: -4px;
@@ -375,7 +373,7 @@ Work Shop
     box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
 }
 .icon-box i {
-    color: #5FCF80;
+    color: #ffec4d;
     font-size: 65px;
 }
 .ser-text {
@@ -434,10 +432,10 @@ Testimonial
 Course
 ************************************/
 [class*=" imghvr-"] figcaption, [class^="imghvr-"] figcaption {
-    background-color: #5FCF80;
+    background-color: #ffec4d;
 }
 [class*=" imghvr-"], [class^="imghvr-"] {
-    background-color: #5FCF80;
+    background-color: #ffec4d;
     color: #fff;
 }
 /***********************************
@@ -481,7 +479,7 @@ Price Table
     padding: 20px 0px;
     font-weight: bold !important;
     font-size: 14px;
-    background-color: #5fcf80;
+    background-color: #ffec4d;
 }
 /***********************************
 Contact Us
@@ -550,7 +548,7 @@ Contact Us
 Footer
 ************************************/
 .footer {
-    padding: 60px 0 20px;
+    padding: 20px;
     background: #111;
     color: #ccc;
 }
@@ -599,14 +597,14 @@ Footer
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .btn-submit:hover, .btn-submit:focus{
-    background-color: #5fcf80;
+    background-color: #ffec4d;
     color: #fff;
 }
 .btn-submit{
 	padding: 14px 12px;
 	border-radius: 50px;
 	text-transform: uppercase;
-    background-color: #5fcf80;
+    background-color: #ffec4d;
     color: #fff;
 }
 .btn-submit i{
@@ -654,19 +652,19 @@ Footer
     padding: 10px 20px;
 }
 .light-form-button{
-    background: #5fcf80;
+    background: black;
     border: 1px solid rgba(119, 81, 81, 0.34);
     width: 100%;
     padding: 10px 10px;
     margin-bottom: 15px;
-    color: #fff;: #fafafa;
+    color: white;
      -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .btn-green, .btn-green:hover{
-    background-color: #5fcf80;
-    color: #fff;
+    background-color: #ffec4d;
+    color: black;
 }
 .footer .form-control:focus{
     box-shadow: none;
@@ -822,6 +820,7 @@ Signup Page
     text-align: center;
     padding: 6px 0;
     font-size: 12px;
+    font-weight: bolder;
     line-height: 1.428571429;
     border-radius: 15px;
 }

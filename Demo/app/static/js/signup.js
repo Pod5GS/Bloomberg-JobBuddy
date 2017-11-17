@@ -1,4 +1,4 @@
-Array.prototype.remove = function() {
+Array.prototype.remove = function () {
     var what, a = arguments, L = a.length, ax;
     while (L && this.length) {
         what = a[--L];
@@ -8,21 +8,21 @@ Array.prototype.remove = function() {
     }
     return this;
 };
-
 var data = [
-    {name: "Python", color: 0xff2c55},
-    {name: "Ruby", color: 0xff2c55},
-    {name: "Javascript", color: 0xff2c55},
-    {name: "React", color: 0xff2c55},
-    {name: "Angular", color: 0xff2c55},
-    {name: "HTML", color: 0xff2c55},
-    {name: "CSS", color: 0xff2c55},
-    {name: "RESTful", color: 0xff2c55},
-    {name: "Bootstrap", color: 0xff2c55},
-    {name: "Git", color: 0xff2c55},
-    {name: "jQuery", color: 0xff2c55}
+    {name: "Finance", color: 0xd8d8d8},
+    {name: "Marketing", color: 0xd8d8d8},
+    {name: "Software", color: 0xd8d8d8},
+    {name: "Writing blog posts", color: 0xd8d8d8},
+    {name: "Mobile apps", color: 0xd8d8d8},
+    {name: "Writing blog posts", color: 0xd8d8d8},
+    {name: "Building a web stie", color: 0xd8d8d8},
+    {name: "Experience Design", color: 0xd8d8d8},
+    {name: "Art", color: 0xd8d8d8},
+    {name: "Fasion", color: 0xd8d8d8},
+    {name: "Games", color: 0xd8d8d8},
+    {name: "Film", color: 0xd8d8d8},
+    {name: "Business", color: 0xd8d8d8}
 ]
-
 var zoom = 100;
 var balls = [];
 var activedata = [];
@@ -30,16 +30,12 @@ var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
     transparent: true, antialias: true
 });
 document.getElementById("board").appendChild(renderer.view);
-
-
 var world = new p2.World({gravity: [0, 0]});
 var stage = new PIXI.Container();
 stage.position.x = renderer.width / 2; // center at origin
 stage.position.y = renderer.height / 2;
 stage.scale.x = zoom;  // zoom in
 stage.scale.y = -zoom; // Note: we flip the y axis to make "up" the physics "up"
-
-
 //floor
 planeShape = new p2.Plane();
 planeBody = new p2.Body({position: [0, -1]});
@@ -48,7 +44,6 @@ world.addBody(planeBody);
 
 
 var Ball = function (t, c, r, x) {
-
     this.init = function () {
         this.el = new PIXI.Container();
         this.baseRadius = this.radius = r;
@@ -62,13 +57,11 @@ var Ball = function (t, c, r, x) {
         this.circle.scale.x = this.circle.scale.y = this.radius;
         this.el.addChild(this.circle);
         this.text = t;
-
         stage.addChild(this.el);
-
         let text = new PIXI.Text(t, {
             fontFamily: 'Arial',
             fontSize: 14,
-            fill: 0xffffff,
+            fill: 0x000000,
             align: 'center',
             wordWrap: true
         });
@@ -78,9 +71,7 @@ var Ball = function (t, c, r, x) {
         text.scale.x = 0.01;
         text.scale.y = -0.01;
         this.el.addChild(text);
-
         this.shape = new p2.Circle({radius: this.radius});
-
         let startX = x % 2 === 0 ? 2 + r : -2 - r;
         let startY = r - Math.random() * (r * 2);
         this.body = new p2.Body({
@@ -92,7 +83,6 @@ var Ball = function (t, c, r, x) {
         this.body.addShape(this.shape);
         world.addBody(this.body);
     }
-
     this.update = function () {
         this.body.applyForce([-this.body.position[0] / 100, -this.body.position[1] / 100]);
 
@@ -100,15 +90,12 @@ var Ball = function (t, c, r, x) {
         this.el.position.y = this.body.position[1];
         this.el.rotation = this.body.angle;
     }
-
     this.mouseover = function () {
 
     }
-
     this.mouseout = function () {
 
     }
-
     this.click = function () {
         if (this.iscliked) {
             this.radius = this.baseRadius;
@@ -132,46 +119,77 @@ var Ball = function (t, c, r, x) {
             activedata.push(this.text);
         }
     }
-
     this.updateRadius = function () {
         this.shape.radius = this.circle.scale.x;
         this.body.updateBoundingRadius();
     }
-
     this.init.call(this);
     this.circle.mouseover = this.mouseover.bind(this);
     this.circle.mouseout = this.mouseout.bind(this);
     this.circle.click = this.click.bind(this);
 }
-
-
-for (var i = 0; i < data.length; i++) {
-    var ball = new Ball(data[i].name, data[i].color, 0.5, i);
-    this.balls.push(ball);
+function pushball(){
+    for (var i = 0; i < data.length; i++) {
+        var ball = new Ball(data[i].name, data[i].color, 0.5, i);
+        balls.push(ball);
+    }
 }
 
 function animate() {
-
     world.step(1 / 60);
-
     for (var i = 0; i < this.balls.length; i++) {
         balls[i].update();
     }
-
     renderer.render(stage);
-
     requestAnimationFrame(animate);
 }
 
-animate();
-
-function gotocareer() {
-    $('#contact').hide();
-    $('#step1').attr('class', 'btn btn-default btn-circle');
-    $('#step2').attr('class', 'btn btn-primary btn-circle');
-    $('#skillsetsArea').show();
+function render(){
+    pushball();
+    animate();
 }
 
-function gomatching() {
+render();
 
+function gotonextbubble() {
+    data = [
+        {name: "Python", color: 0xd8d8d8},
+        {name: "Ruby", color: 0xd8d8d8},
+        {name: "Javascript", color: 0xd8d8d8},
+        {name: "React", color: 0xd8d8d8},
+        {name: "Angular", color: 0xd8d8d8},
+        {name: "HTML", color: 0xd8d8d8},
+        {name: "CSS", color: 0xd8d8d8},
+        {name: "RESTful", color: 0xd8d8d8},
+        {name: "Bootstrap", color: 0xd8d8d8},
+        {name: "Git", color: 0xd8d8d8},
+        {name: "jQuery", color: 0xd8d8d8}
+    ];
+    renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
+        transparent: true, antialias: true
+    });
+    document.getElementById("board2").appendChild(renderer.view);
+    world = new p2.World({gravity: [0, 0]});
+    stage = new PIXI.Container();
+    stage.position.x = renderer.width / 2; // center at origin
+    stage.position.y = renderer.height / 2;
+    stage.scale.x = zoom;  // zoom in
+    stage.scale.y = -zoom; // Note: we flip the y axis to make "up" the physics "up"
+//floor
+    planeShape = new p2.Plane();
+    planeBody = new p2.Body({position: [0, -1]});
+    planeBody.addShape(planeShape);
+    world.addBody(planeBody);
+    render();
+    $('#skillsetsArea').hide();
+    $('#step1').attr('class', 'btn btn-default btn-circle');
+    $('#step2').attr('class', 'btn btn-primary btn-circle');
+    $('#skillsetsArea2').show();
+}
+
+function gotosignup() {
+    $('#skillsetsArea2').hide();
+    $('#step2').attr('class', 'btn btn-default btn-circle');
+    $('#step3').attr('class', 'btn btn-primary btn-circle');
+    $('#contact').show();
 }

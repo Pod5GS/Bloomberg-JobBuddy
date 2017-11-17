@@ -23,12 +23,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index">Job<span>buddy</span></a>
+            <a class="navbar-brand" href="index"><img src="static/img/Logo.png" style="height: 50px;"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" data-target="#login" data-toggle="modal">Sign in</a></li>
-                <li><a href="signup">Sign up</a></li>
+                <li><a href="mentormatch">Mentoring</a></li>
+                <li><a href="events">Events</a></li>
+                <li><a>Profile</a></li>
             </ul>
         </div>
     </div>
@@ -96,18 +97,54 @@
         <div class="stepwizard-row">
             <div class="stepwizard-step">
                 <button type="button" class="btn btn-primary btn-circle" id="step1">1</button>
-                <p>Sign up</p>
+                <p>Mentoring<br>Interest</p>
             </div>
             <div class="stepwizard-step">
                 <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step2">2</button>
-                <p>Set up<br>your profile</p>
+                <p>Select<br>Skill</p>
+            </div>
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step3">3</button>
+                <p>Set Up<br>Profile</p>
             </div>
         </div>
     </div>
 </div>
 <!--/ Step Indicator-->
+<!-- Skillset -->
+<section id="skillsetsArea" >
+    <div class="header-section text-center">
+        <h2>Tell us a bit more about your interests</h2>
+        <p>We'll connect you to the professionals that match you need.<br>Click the interest to choose, hold to learn more.</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board" style="height: 500px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotonextbubble()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset->
+<!-- Skillset2 -->
+<section id="skillsetsArea2" style="display: none;">
+    <div class="header-section text-center">
+        <h2>Select what you are interested in learning</h2>
+        <p>You can come back and edit any time</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board2" style="height: 500px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotosignup()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset2->
 <!-- SignUp Form-->
-<section id="contact" class="section-padding">
+<section id="contact" style="display: none;">
     <div class="container">
         <div class="row">
             <div class="header-section text-center">
@@ -137,48 +174,19 @@
                                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
                         <div class="validation"></div>
                     </div>
-                    <div class="btn-group" style="margin-bottom: 10px">
-                        <button type="button" class="btn btn-primary">Manhattan</button>
-                        <button type="button" class="btn btn-primary">Brooklyn</button>
-                        <button type="button" class="btn btn-primary">Queens</button>
-                        <button type="button" class="btn btn-primary">Staten Is</button>
-                        <button type="button" class="btn btn-primary">Bronx</button>
-                    </div>
                 </div>
             </form>
-            <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3">
+            <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 100px;">
                 <!-- Button -->
-                <button class="contact-form-button light-form-button oswald light" onclick="gotocareer();">Next</button>
+                <a href="mentormatch"><button class="contact-form-button light-form-button oswald light">Next</button></a>
             </div>
         </div>
     </div>
 </section>
 <!--/ SignUp Form-->
-<!-- Skillset -->
-<section id="skillsetsArea" style="display: none;">
-    <div class="header-section text-center">
-        <h2>Tell us a bit more about your interests</h2>
-        <hr class="bottom-line">
-    </div>
-    <div id="board" style="height: 500px;"></div>
-    <div class="container">
-        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3">
-            <!-- Button -->
-            <a href="mentormatch"><button class="form contact-form-button light-form-button oswald light" href="mentormatch">Next</button></a>
-        </div>
-    </div>
-</section>
-<!--/ Skillset->
 <!--Footer-->
 <footer id="footer" class="footer">
     <div class="container text-center">
-        <ul class="social-links">
-            <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
-            <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
-            <li><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li>
-            <li><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
-            <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
-        </ul>
         ©2017 Job Buddy. All rights reserved
     </div>
 </footer>

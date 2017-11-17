@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Buddy</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords"
+          content="free mentoring service">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/imagehover.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <style>
+        .chat-content-container {
+            height: 380px;
+            overflow-y: scroll;
+            padding: 20px;
+        }
+
+        .nano {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .nano > .nano-content {
+            position: absolute;
+            overflow: scroll;
+            overflow-x: hidden;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .pad-all {
+            padding: 15px;
+        }
+
+        .mar-btm {
+            margin-bottom: 15px;
+        }
+
+        .media-block .media-left {
+            display: block;
+            float: left;
+        }
+
+        .img-sm {
+            width: 46px;
+            height: 46px;
+        }
+
+        .media-block .media-body {
+            display: block;
+            overflow: hidden;
+            width: auto;
+        }
+
+        .pad-hor {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .speech {
+            position: relative;
+            background: #b7dcfe;
+            color: #317787;
+            display: inline-block;
+            border-radius: 0;
+            padding: 12px 20px;
+        }
+
+        .speech:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 0;
+            top: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-right: 7px solid #b7dcfe;
+            margin: 15px 0 0 -6px;
+        }
+
+        .speech-right > .speech:before {
+            left: auto;
+            right: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 7px solid #ffdc91;
+            border-right: 0;
+            margin: 15px -6px 0 0;
+        }
+
+        .speech .media-heading {
+            font-size: 1.2em;
+            color: #317787;
+            display: block;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .speech-time {
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-size: .8em;
+            font-weight: 300;
+        }
+
+        .media-block .media-right {
+            float: right;
+        }
+
+        .speech-right {
+            text-align: right;
+        }
+
+        .pad-hor {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .speech-right > .speech {
+            background: #ffda87;
+            color: #a07617;
+            text-align: right;
+        }
+
+        .speech-right > .speech .media-heading {
+            color: #a07617;
+        }
+
+        .btn-primary, .btn-primary:focus, .btn-hover-primary:hover,
+        .btn-hover-primary:active, .btn-hover-primary.active, .btn.btn-active-primary:active,
+        .btn.btn-active-primary.active, .dropdown.open > .btn.btn-active-primary,
+        .btn-group.open .dropdown-toggle.btn.btn-active-primary {
+            background-color: #579ddb;
+            border-color: #5fa2dd;
+            color: #fff !important;
+        }
+
+        .btn {
+            cursor: pointer;
+            color: inherit;
+            padding: 6px 12px;
+            border-radius: 0;
+            border: 1px solid 0;
+            font-size: 11px;
+            line-height: 1.42857;
+            vertical-align: middle;
+            -webkit-transition: all .25s;
+            transition: all .25s;
+        }
+
+        .form-control {
+            font-size: 11px;
+            height: 100%;
+            border-radius: 0;
+            box-shadow: none;
+            border: 1px solid #e9e9e9;
+            transition-duration: .5s;
+        }
+
+        .nano > .nano-pane {
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            width: 5px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            -webkit-transition: all .7s;
+            transition: all .7s;
+        }
+
+        .input {
+            height: 6em;
+            overflow-y: auto;
+            overflow-x: hidden;
+            outline: 0;
+            border: 0;
+            font-size: large;
+        }
+
+        .toolbar {
+            padding-left: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .uline-title {
+            margin-bottom: 15px;
+            padding: 0 0 37px;
+            text-align: center;
+            background: url("images/utitlebg.png");
+            background-repeat: no-repeat;
+            background-position: center bottom -2px;
+        }
+
+        #questions input{
+            width: 100%;
+            font-size: small;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        var vidyoConnector;
+        // Callback method when VidyoIO is done loading (pointer to this method is passed in the onload parameter while including the
+        // VidyoClient.js file)
+        function onVidyoClientLoaded(status) {
+            console.log("VidyoClient load state - " + status.state);
+            if (status.state == "READY") {
+                VC.CreateVidyoConnector({
+                    viewId: "renderer", // Div ID where the composited video will be rendered, see VidyoConnector.html;
+                    viewStyle: "VIDYO_CONNECTORVIEWSTYLE_Default", // Visual style of the composited renderer
+                    remoteParticipants: 10, // Maximum number of participants to render
+                    logFileFilter: "error",
+                    logFileName: "",
+                    userData: ""
+                }).then(function (vc) {
+                    console.log("Create success");
+                    vidyoConnector = vc;
+                    joinCall();
+                }).catch(function (error) {
+                });
+            }
+        }
+
+        function joinCall() {
+            // To join a video conference call Connect method
+            vidyoConnector.Connect({
+                host: "prod.vidyo.io",  // Server name, for most production apps it will be prod.vidyo.io
+                token: "cHJvdmlzaW9uAFNhY2hpbkA2ZThjZTYudmlkeW8uaW8AMTAwMDA2MzY3Nzk5ODcyOQAAZjc0NTQyY2I0NTdiZDUxNTI1ODY3NjA2N2U5MWI3MDQwZjU1ODU0MmE4NDkwMjg4OTZlMDYyM2JjN2RlOGNjNGVmOGI5YTg4NDdkNDVlZTEwZTJjMTNiYzk2Y2FmMjM2",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
+                displayName: "Ana",  // Display name
+                resourceId: "demoRoom", // Room name
+                onSuccess: function () {
+                    console.log("Connected!! YAY!");
+                },
+                onFailure: function (reason) {
+                    console.error("Connection failed");
+                },
+                onDisconnected: function (reason) {
+                    console.log(" disconnected - " + reason);
+                }
+            })
+        }
+    </script>
+    <script src="https://static.vidyo.io/latest/javascript/VidyoClient/VidyoClient.js?onload=onVidyoClientLoaded"></script>
+</head>
+<body>
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index"><img src="static/img/Logo.png" style="height: 50px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="mentormatch">Mentoring</a></li>
+                <li><a href="events">Events</a></li>
+                <li><a>Profile</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--/ Navigation bar-->
+<section id="videochat" style="margin-top:70px;">
+    <div class="container">
+        <div class="row">
+            <h4><strong>Adam</strong>, Web Developer from Google</h4>
+            <h5><strong>Topic 1: I want to become a web developer, what are some qualification of entry jobs?</h5>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row" style="display: table;width: 100%;">
+            <div id="renderer" class="col-md-8 col-xs-12" style="display: table-cell;"></div>
+            <div id="chat-area" class="col-md-4 col-xs-12" style="display: table-cell;">
+                <div class="panel bk-widget bk-border-off bk-noradius">
+                    <div id="chat">
+                        <div class="nano has-scrollbar bk-bg-white">
+                            <div class="chat-content-container" tabindex="0">
+                                <ul class="list-unstyled media-block" id="chatarea">
+
+                                </ul>
+                            </div>
+                            <div class="nano-pane">
+                                <div class="nano-slider"
+                                     style="height: 141px; transform: translate(0px, 0px);"></div>
+                            </div>
+                        </div>
+                        <hr class="bk-margin-off"/>
+                        <div id="inputarea" class="inputarea-container bk-bg-white" style="overflow-y:auto;">
+                            <div class="toolbar" id="tool_bar">
+
+                            </div>
+                            <div id="chatinput">
+                                <textarea id="inputtxt" class="input col-md-12 col-xs-12"></textarea>
+                            </div>
+                            <div id="send" class="text-right bk-bg-white">
+                                <a class="btn btn-primary" onclick="sendMessage()"
+                                   style="margin-right:20px;"> <i class="fa fa-send"></i> Send
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="bottom">
+    <div class="container">
+        <div class="row">
+            <div id="questions" class="col-md-6 col-xs-12">
+                <h4>Suggested Questions</h4>
+                <input class="form-control form" placeholder="For javascript beginners, what are some common mistakes and how to debug?" disabled="disabled">
+                <input class="form-control form" placeholder="Do I need to memorize all these grammers in coding?" disabled="disabled">
+                <input class="form-control form" placeholder="What softwares I need to install to write Javascript?" disabled="disabled">
+                <input class="form-control form" placeholder="I can write the JS script from online course, but how to make a website?" disabled="disabled">
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h4>Notes</h4>
+                <textarea id="notes" style="width:100%; height: 300px;"></textarea>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Footer-->
+<footer id="footer" class="footer">
+    <div class="container text-center">
+        ©2017 Job Buddy. All rights reserved
+    </div>
+</footer>
+<!--/ Footer-->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery.easing.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/custom.js"></script>
+<script>
+    var videoheight = $('#chat').height();
+    var d = new Date();
+    $('#renderer').height(videoheight);
+    var msg = "<li class='mar-btm'>"
+        + "<div class='media-left'>"
+        + "<img src='static/img/customer.png' class='img-circle img-sm' alt=''>"
+        + "</div>" + "<div class='media-body pad-hor'>"
+        + "<div class='speech'>"
+        + "<a href='#' class='media-heading'>"
+        + "Adam" + "</a>" + "<p>" + "Hello, Ana! I'm Adam." + "</p>"
+        + "<p class='speech-time'>"
+        + "<i class='fa fa-clock-o fa-fw'></i>" + d.toLocaleString()
+        + "</p>" + "</div>" + "</div>" + "</li>";
+    $('#chatarea').append(msg);
+    $('#notes').append("- Check out a software called Sublime, it's a common script editor.\nthe url: www.sublime.com\n- I use Atom. this is more customizeble.\n- Making websites is more advanced than what I'm learning right now.\n- Finish the foundation course first, as I am a beginner in coding.");
+    function sendMessage() {
+        var mydate = new Date();
+        var t = mydate.toLocaleString();
+        var markupStr = $('#inputtxt').val();
+        if (markupStr == "") {
+            swal("错误!", "消息不能为空！", "error");
+            return;
+        }
+        var liStr = "<li class='mar-btm'>"
+            + "<div class='media-right'>"
+            + "<img src='static/img/customer.png' class='img-circle img-sm' alt='Profile Picture'>"
+            + "</div>"
+            + "<div class='media-body pad-hor speech-right'>"
+            + "<div class='speech'>"
+            + "<a href='#' class='media-heading'>" + "Ana" + "</a>"
+            + "<p>" + markupStr + "</p>"
+            + "<p class='speech-time'>"
+            + "<i class='fa fa-clock-o fa-fw'></i>" + t + "</p>"
+            + "</div>" + "</div>" + "</li>";
+        //前端聊天区域扩展新消息
+        $('#chatarea').append(liStr);
+        $('#inputtxt').val("");
+        // 把滚动条滚动到底部
+        $(".chat-content-container").scrollTop(
+            $(".chat-content-container")[0].scrollHeight);
+    }
+</script>
+</body>
+</html>
