@@ -68,7 +68,7 @@ def test_message(message):
 
 @socketio.on('my broadcast event', namespace='/test')
 def test_message(message):
-    emit('my response', {'data': message['data']}, broadcast=True)
+    emit('my response', {'data': message['data'], 'type': message['type']}, broadcast=True)
 
 
 @socketio.on('connect', namespace='/test')

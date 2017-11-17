@@ -366,25 +366,28 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
 <script>
     var videoheight = $('#chat').height();
-    var d = new Date();
     $('#renderer').height(videoheight);
-    var msg = "<li class='mar-btm'>"
-        + "<div class='media-left'>"
-        + "<img src='static/img/customer.png' class='img-circle img-sm' alt=''>"
-        + "</div>" + "<div class='media-body pad-hor'>"
-        + "<div class='speech'>"
-        + "<a href='#' class='media-heading'>"
-        + "Adam" + "</a>" + "<p>" + "Hello, Ana! I'm Adam." + "</p>"
-        + "<p class='speech-time'>"
-        + "<i class='fa fa-clock-o fa-fw'></i>" + d.toLocaleString()
-        + "</p>" + "</div>" + "</div>" + "</li>";
-    $('#chatarea').append(msg);
     $('#notes').append("- Check out a software called Sublime, it's a common script editor.\nthe url: www.sublime.com\n- I use Atom. this is more customizeble.\n- Making websites is more advanced than what I'm learning right now.\n- Finish the foundation course first, as I am a beginner in coding.");
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
     socket.on('my response', function(msg) {
         if(msg.data == 'Connected')
             return;
-        $('#questions').append('<div class="question-item"><p style="margin-left: 10px;">' + msg.data + '</p> </div>');
+        if(msg.type == "message"){
+            var d = new Date();
+            var lisStr = "<li class='mar-btm'>"
+                + "<div class='media-left'>"
+                + "<img src='static/img/customer.png' class='img-circle img-sm' alt=''>"
+                + "</div>" + "<div class='media-body pad-hor'>"
+                + "<div class='speech'>"
+                + "<a href='#' class='media-heading'>"
+                + "Adam" + "</a>" + "<p>" + msg.data + "</p>"
+                + "<p class='speech-time'>"
+                + "<i class='fa fa-clock-o fa-fw'></i>" + d.toLocaleString()
+                + "</p>" + "</div>" + "</div>" + "</li>";
+            $('#chatarea').append(lisStr);
+        }else{
+            $('#questions').append('<div class="question-item"><p style="margin-left: 10px;">' + msg.data + '</p> </div>');
+        }
     });
     $('#questions').on("click", ".question-item", function() {
        $(this).removeClass('question-item').addClass('question-item-visited');
