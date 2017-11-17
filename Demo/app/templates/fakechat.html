@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <textarea id="inputarea"></textarea>
+    <a onclick="broadcast()">Send Fake Question</a>
+</div>
+<script src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+<script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    function broadcast(){
+        socket.emit('my broadcast event', {data: $('#inputarea').val()});
+        $("#inputarea").val('');
+    }
+</script>
+</body>
+</html>

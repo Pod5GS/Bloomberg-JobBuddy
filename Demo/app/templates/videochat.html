@@ -207,11 +207,23 @@
             background-repeat: no-repeat;
             background-position: center bottom -2px;
         }
-
-        #questions input{
-            width: 100%;
+        .question-item {
+            background-color:darkgrey;
+            color:black;width: 100%;
             font-size: small;
+            height: 30px;
+            line-height: 30px;
             margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .question-item-visited {
+            background-color: #ddd;
+            color:black;width: 100%;
+            font-size: small;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            border-radius: 5px;
         }
     </style>
     <script>
@@ -255,6 +267,7 @@
                 }
             })
         }
+
     </script>
     <script src="https://static.vidyo.io/latest/javascript/VidyoClient/VidyoClient.js?onload=onVidyoClientLoaded"></script>
 </head>
@@ -331,10 +344,6 @@
         <div class="row">
             <div id="questions" class="col-md-6 col-xs-12">
                 <h4>Suggested Questions</h4>
-                <input class="form-control form" placeholder="For javascript beginners, what are some common mistakes and how to debug?" disabled="disabled">
-                <input class="form-control form" placeholder="Do I need to memorize all these grammers in coding?" disabled="disabled">
-                <input class="form-control form" placeholder="What softwares I need to install to write Javascript?" disabled="disabled">
-                <input class="form-control form" placeholder="I can write the JS script from online course, but how to make a website?" disabled="disabled">
             </div>
             <div class="col-md-6 col-xs-12">
                 <h4>Notes</h4>
@@ -354,6 +363,7 @@
 <script src="static/js/jquery.easing.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/custom.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
 <script>
     var videoheight = $('#chat').height();
     var d = new Date();
@@ -370,6 +380,15 @@
         + "</p>" + "</div>" + "</div>" + "</li>";
     $('#chatarea').append(msg);
     $('#notes').append("- Check out a software called Sublime, it's a common script editor.\nthe url: www.sublime.com\n- I use Atom. this is more customizeble.\n- Making websites is more advanced than what I'm learning right now.\n- Finish the foundation course first, as I am a beginner in coding.");
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    socket.on('my response', function(msg) {
+        if(msg.data == 'Connected')
+            return;
+        $('#questions').append('<div class="question-item"><p style="margin-left: 10px;">' + msg.data + '</p> </div>');
+    });
+    $('#questions').on("click", ".question-item", function() {
+       $(this).removeClass('question-item').addClass('question-item-visited');
+    });
     function sendMessage() {
         var mydate = new Date();
         var t = mydate.toLocaleString();
@@ -378,6 +397,8 @@
             swal("错误!", "消息不能为空！", "error");
             return;
         }
+        socket.emit('my event', {data: $('#emit_data').val()});
+        return false;
         var liStr = "<li class='mar-btm'>"
             + "<div class='media-right'>"
             + "<img src='static/img/customer.png' class='img-circle img-sm' alt='Profile Picture'>"
@@ -396,6 +417,7 @@
         $(".chat-content-container").scrollTop(
             $(".chat-content-container")[0].scrollHeight);
     }
+
 </script>
 </body>
 </html>
