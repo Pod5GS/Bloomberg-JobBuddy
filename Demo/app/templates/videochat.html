@@ -211,19 +211,17 @@
             background-color:darkgrey;
             color:black;width: 100%;
             font-size: small;
-            height: 30px;
-            line-height: 30px;
             margin-bottom: 5px;
             border-radius: 5px;
+            word-wrap: break-word;
         }
         .question-item-visited {
             background-color: #ddd;
             color:black;width: 100%;
             font-size: small;
-            height: 30px;
-            line-height: 30px;
             margin-bottom: 5px;
             border-radius: 5px;
+            word-wrap: break-word;
         }
     </style>
     <script>
@@ -307,11 +305,22 @@
             <div id="renderer" class="col-md-8 col-xs-12" style="display: table-cell;"></div>
             <div id="chat-area" class="col-md-4 col-xs-12" style="display: table-cell;">
                 <div class="panel bk-widget bk-border-off bk-noradius">
+                    <div id="header"
+                         class="panel-body bk-bg-primary text-center bk-padding-top-10 bk-padding-bottom-10">
+                        <div class="row">
+                            <div class="col-xs-8 text-left bk-vcenter">
+                                <h6 class="bk-margin-off" id="chatcustomername">Welcome, Ana！</h6>
+                            </div>
+                            <div class="col-xs-4 bk-vcenter text-right">
+                                <a id="logout" href="endchat" class="btn btn-default pull-right">Leave conversation</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="bk-margin-off" />
                     <div id="chat">
                         <div class="nano has-scrollbar bk-bg-white">
                             <div class="chat-content-container" tabindex="0">
                                 <ul class="list-unstyled media-block" id="chatarea">
-
                                 </ul>
                             </div>
                             <div class="nano-pane">
