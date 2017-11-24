@@ -92,7 +92,7 @@
 </div>
 <!--/ Modal box-->
 <!--Step Indicator-->
-<div class="container">
+<div id="steps" class="container">
     <div class="stepwizard">
         <div class="stepwizard-row">
             <div class="stepwizard-step">
@@ -144,7 +144,7 @@
 </section>
 <!--/ Skillset2->
 <!-- SignUp Form-->
-<section id="contact" style="display: none;">
+<section id="form" style="display: none;">
     <div class="container">
         <div class="row">
             <div class="header-section text-center">
@@ -185,70 +185,150 @@
     </div>
 </section>
 <!--/ SignUp Form-->
+<!-- Result-->
+<div id="matched" style="display:none;">
+    <!-- Online Mentor-->
+    <section id="onlinementor" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="header-section">
+                    <h2>Mentors Online Now</h2>
+                </div>
+                <hr>
+                <div id="loading" style="width: 100%" class="text-center">
+                    <img src="static/img/finding.png"/>
+                    <h4>Finding the most matched mentors...</h4>
+                </div>
+                <div id="results" style="display:none;">
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor3.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Marina</h4>
+                            <h4>Web Engineer</h4>
+                            <p>Facebook, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor2.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Marina</h4>
+                            <h4>Web Engineer</h4>
+                            <p>Facebook, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor1.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Marina</h4>
+                            <h4>Web Engineer</h4>
+                            <p>Facebook, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor.jpg" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Marina</h4>
+                            <h4>Web Engineer</h4>
+                            <p>Facebook, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!--/ Online Mentor-->
+    <!--Previous Mentor-->
+    <section id="offlinementor">
+        <div class="container">
+            <div class="row">
+                <div class="header-section">
+                    <h2>Previous Mentors</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+    <table style="border-collapse:collapse;table-layout:fixed;margin:auto;"
+           border="0">
+        <colgroup>
+            <col style="width:124px;">
+            <col style="width:6px;">
+            <col style="width:2px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:4px;">
+            <col style="width:3px;">
+            <col style="width:34px;">
+            <col style="width:119px;">
+            <col style="width:15px;">
+            <col style="width:19px;">
+            <col style="width:179px;">
+            <col style="width:426px;">
+            <col style="width:333px;">
+            <col style="width:40px;">
+            <col style="width:3px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:128px;">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td colspan="8" style="width:175px;height:20px">­</td>
+            <td style="vertical-align:top;padding:0px;width:1091px;height:157px;" colspan="6"
+                rowspan="2">
+                <div style="display:block;opacity:0.4;width:1091px;height:157px;">
+                    <img src="static/img/79427693-AFFE-4440-ADA1-ECC9DD5445A4@2x.png"
+                         style="display:block;" width="1091" height="157" alt="Group 2">
+                </div>
+            </td>
+            <td colspan="6" style="width:174px;height:20px">­</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+</div>
+<!--/ Result-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.js'></script>
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/popper.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/signup.js"></script>
 <script src="static/js/jquery.validate.js"></script>
-<script type="text/javascript">
-    $.validator.setDefaults( {
-        submitHandler: function () {
-            alert( "submitted!" );
-        }
-    } );
-    $( document ).ready( function () {
-        $( "#signupForm" ).validate( {
-            rules: {
-                name: "required",
-                pwd: {
-                    required: true,
-                    minlength: 5
-                },
-                repwd: {
-                    required: true,
-                    minlength: 5,
-                    equalTo: "#pwd"
-                },
-                email: {
-                    required: true,
-                    email: true
-                }
-            },
-            messages: {
-                name: "Please enter your name",
-                pwd: {
-                    required: "Please provide a password",
-                    minlength: "Your password must be at least 5 characters long"
-                },
-                repwd: {
-                    required: "Please provide a password",
-                    minlength: "Your password must be at least 5 characters long",
-                    equalTo: "Please enter the same password as above"
-                },
-                email: "Please enter a valid email address",
-            },
-            errorElement: "em",
-            errorPlacement: function ( error, element ) {
-                // Add the `help-block` class to the error element
-                error.addClass( "validation" );
-
-                if ( element.prop( "type" ) === "checkbox" ) {
-                    error.insertAfter( element.parent( "label" ) );
-                } else {
-                    error.insertAfter( element );
-                }
-            },
-            highlight: function ( element, errorClass, validClass ) {
-                $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
-            }
-        } );
-    });
-</script>
+<script src="static/js/signup.js"></script>
 </body>
 </html>

@@ -86,8 +86,3 @@ def getRecommendation(user_profile, k):
 
     print recommended_mentors
     return recommended_mentors
-
-# if __name__ == "__main__":
-#
-# 	test_user = ["0", "female", "highschool", "WA", "IP/SDN/AfterEffect/TCP/IaaS/"]
-# 	out = getRecommendation(test_user, 5)

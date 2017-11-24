@@ -191,5 +191,93 @@ function gotosignup() {
     $('#skillsetsArea2').hide();
     $('#step2').attr('class', 'btn btn-default btn-circle');
     $('#step3').attr('class', 'btn btn-primary btn-circle');
-    $('#contact').show();
+    $('#form').show();
 }
+
+function recommend() {
+    $('#steps').hide();
+    $('#form').hide();
+    $('#matched').show();
+    var interests = '';
+    for (var i = 0; i < activedata.length; i++) {
+        interests += activedata[i] + '/'
+    }
+    data = {
+        "menteeId": 29,
+        "menteeGender": "female",
+        "menteeEducation": "highschool",
+        "menteeLocation": "NY",
+        "menteeInterests": interests
+    };
+    $.ajax({
+        type: "POST",
+        url: "/recommend",
+        Accept: "application/json",
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        success: function (data) {
+            var names = ['Willie', 'Adam', 'Mariana', 'Jack'];
+            for (var i = 0; i < 3; i++) {
+                $('#mentors').append()
+            }
+            $('#resultArea').show();
+        }
+    });
+}
+
+$.validator.setDefaults( {
+    submitHandler: function () {
+        recommend();
+    }
+} );
+
+$( document ).ready( function () {
+    $( "#signupForm" ).validate( {
+        rules: {
+            name: "required",
+            pwd: {
+                required: true,
+                minlength: 5
+            },
+            repwd: {
+                required: true,
+                minlength: 5,
+                equalTo: "#pwd"
+            },
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            name: "Please enter your name",
+            pwd: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            repwd: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long",
+                equalTo: "Please enter the same password as above"
+            },
+            email: "Please enter a valid email address",
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `help-block` class to the error element
+            error.addClass( "validation" );
+
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.parent( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+    } );
+});
