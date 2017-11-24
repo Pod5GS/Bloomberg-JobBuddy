@@ -118,7 +118,7 @@
         <p>We'll connect you to the professionals that match you need.<br>Click the interest to choose, hold to learn more.</p>
         <hr class="bottom-line">
     </div>
-    <div id="board" style="height: 500px;"></div>
+    <div id="board" style="height: 450px;"></div>
     <div class="container">
         <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
             <!-- Button -->
@@ -134,7 +134,7 @@
         <p>You can come back and edit any time</p>
         <hr class="bottom-line">
     </div>
-    <div id="board2" style="height: 500px;"></div>
+    <div id="board2" style="height: 450px;"></div>
     <div class="container">
         <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
             <!-- Button -->
@@ -152,45 +152,39 @@
                 <p>You are only a few clicks away from meeting your mentors!</p>
                 <hr class="bottom-line">
             </div>
-            <form class="contactForm">
+            <form id="signupForm" class="signupForm" action="" method="post">
                 <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name"
-                               data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                        <input type="text" class="form-control form" id="name" name="name" placeholder="Your Name*"/>
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                               data-rule="email" data-msg="Please enter a valid email"/>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email*"/>
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="subject" id="subject" placeholder="Your Password"
-                               data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Your Password*"/>
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Other Language You Speak"
-                               data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
+                        <input type="password" class="form-control" id="repwd" name="repwd" placeholder="Repeat Your Password*"/>
                         <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="language" name="language" placeholder="Other Language You Speak"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3 form-group">
+                        <!-- Button -->
+                        <button class="contact-form-button light-form-button oswald light" type="submit">Next</button>
                     </div>
                 </div>
             </form>
-            <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 100px;">
-                <!-- Button -->
-                <a href="mentormatch"><button class="contact-form-button light-form-button oswald light">Next</button></a>
-            </div>
+
         </div>
     </div>
 </section>
 <!--/ SignUp Form-->
-<!--Footer-->
-<footer id="footer" class="footer">
-    <div class="container text-center">
-        ©2017 Job Buddy. All rights reserved
-    </div>
-</footer>
-<!--/ Footer-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.js'></script>
@@ -198,5 +192,63 @@
 <script src="static/js/popper.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/signup.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script type="text/javascript">
+    $.validator.setDefaults( {
+        submitHandler: function () {
+            alert( "submitted!" );
+        }
+    } );
+    $( document ).ready( function () {
+        $( "#signupForm" ).validate( {
+            rules: {
+                name: "required",
+                pwd: {
+                    required: true,
+                    minlength: 5
+                },
+                repwd: {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#pwd"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Please enter your name",
+                pwd: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                repwd: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    equalTo: "Please enter the same password as above"
+                },
+                email: "Please enter a valid email address",
+            },
+            errorElement: "em",
+            errorPlacement: function ( error, element ) {
+                // Add the `help-block` class to the error element
+                error.addClass( "validation" );
+
+                if ( element.prop( "type" ) === "checkbox" ) {
+                    error.insertAfter( element.parent( "label" ) );
+                } else {
+                    error.insertAfter( element );
+                }
+            },
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+            }
+        } );
+    });
+</script>
 </body>
 </html>

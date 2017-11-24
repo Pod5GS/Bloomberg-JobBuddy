@@ -26,14 +26,14 @@ var data = [
 var zoom = 100;
 var balls = [];
 var activedata = [];
-var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
+var renderer = PIXI.autoDetectRenderer(window.innerWidth, 450, {
     transparent: true, antialias: true
 });
 document.getElementById("board").appendChild(renderer.view);
 var world = new p2.World({gravity: [0, 0]});
 var stage = new PIXI.Container();
 stage.position.x = renderer.width / 2; // center at origin
-stage.position.y = renderer.height / 2;
+stage.position.y = renderer.height / 1.5;
 stage.scale.x = zoom;  // zoom in
 stage.scale.y = -zoom; // Note: we flip the y axis to make "up" the physics "up"
 //floor
@@ -165,14 +165,14 @@ function gotonextbubble() {
         {name: "Git", color: 0xd8d8d8},
         {name: "jQuery", color: 0xd8d8d8}
     ];
-    renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
+    renderer = PIXI.autoDetectRenderer(window.innerWidth, 450, {
         transparent: true, antialias: true
     });
     document.getElementById("board2").appendChild(renderer.view);
     world = new p2.World({gravity: [0, 0]});
     stage = new PIXI.Container();
     stage.position.x = renderer.width / 2; // center at origin
-    stage.position.y = renderer.height / 2;
+    stage.position.y = renderer.height / 1.5;
     stage.scale.x = zoom;  // zoom in
     stage.scale.y = -zoom; // Note: we flip the y axis to make "up" the physics "up"
 //floor
