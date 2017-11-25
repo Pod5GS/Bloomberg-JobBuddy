@@ -9,19 +9,19 @@ Array.prototype.remove = function () {
     return this;
 };
 var data = [
-    {name: "Finance", color: 0xd8d8d8},
-    {name: "Marketing", color: 0xd8d8d8},
-    {name: "Software", color: 0xd8d8d8},
-    {name: "Writing blog posts", color: 0xd8d8d8},
-    {name: "Mobile apps", color: 0xd8d8d8},
-    {name: "Writing blog posts", color: 0xd8d8d8},
-    {name: "Building a web stie", color: 0xd8d8d8},
-    {name: "Experience Design", color: 0xd8d8d8},
-    {name: "Art", color: 0xd8d8d8},
-    {name: "Fasion", color: 0xd8d8d8},
-    {name: "Games", color: 0xd8d8d8},
-    {name: "Film", color: 0xd8d8d8},
-    {name: "Business", color: 0xd8d8d8}
+    {name: "Finance", color: 0xffec4d},
+    {name: "Marketing", color: 0xffec4d},
+    {name: "Software", color: 0xffec4d},
+    {name: "Writing blog posts", color: 0xffec4d},
+    {name: "Mobile apps", color: 0xffec4d},
+    {name: "Writing blog posts", color: 0xffec4d},
+    {name: "Building a web stie", color: 0xffec4d},
+    {name: "Experience Design", color: 0xffec4d},
+    {name: "Art", color: 0xffec4d},
+    {name: "Fasion", color: 0xffec4d},
+    {name: "Games", color: 0xffec4d},
+    {name: "Film", color: 0xffec4d},
+    {name: "Business", color: 0xffec4d}
 ]
 var zoom = 100;
 var balls = [];
@@ -153,17 +153,17 @@ render();
 
 function gotonextbubble() {
     data = [
-        {name: "Python", color: 0xd8d8d8},
-        {name: "Ruby", color: 0xd8d8d8},
-        {name: "Javascript", color: 0xd8d8d8},
-        {name: "React", color: 0xd8d8d8},
-        {name: "Angular", color: 0xd8d8d8},
-        {name: "HTML", color: 0xd8d8d8},
-        {name: "CSS", color: 0xd8d8d8},
-        {name: "RESTful", color: 0xd8d8d8},
-        {name: "Bootstrap", color: 0xd8d8d8},
-        {name: "Git", color: 0xd8d8d8},
-        {name: "jQuery", color: 0xd8d8d8}
+        {name: "Python", color: 0xffec4d},
+        {name: "Ruby", color: 0xffec4d},
+        {name: "Javascript", color: 0xffec4d},
+        {name: "React", color: 0xffec4d},
+        {name: "Angular", color: 0xffec4d},
+        {name: "HTML", color: 0xffec4d},
+        {name: "CSS", color: 0xffec4d},
+        {name: "RESTful", color: 0xffec4d},
+        {name: "Bootstrap", color: 0xffec4d},
+        {name: "Git", color: 0xffec4d},
+        {name: "jQuery", color: 0xffec4d}
     ];
     renderer = PIXI.autoDetectRenderer(window.innerWidth, 450, {
         transparent: true, antialias: true
