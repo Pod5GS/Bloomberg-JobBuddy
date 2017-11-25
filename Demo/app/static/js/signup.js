@@ -198,31 +198,10 @@ function recommend() {
     $('#steps').hide();
     $('#form').hide();
     $('#matched').show();
-    var interests = '';
-    for (var i = 0; i < activedata.length; i++) {
-        interests += activedata[i] + '/'
-    }
-    data = {
-        "menteeId": 29,
-        "menteeGender": "female",
-        "menteeEducation": "highschool",
-        "menteeLocation": "NY",
-        "menteeInterests": interests
-    };
-    $.ajax({
-        type: "POST",
-        url: "/recommend",
-        Accept: "application/json",
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        success: function (data) {
-            var names = ['Willie', 'Adam', 'Mariana', 'Jack'];
-            for (var i = 0; i < 3; i++) {
-                $('#mentors').append()
-            }
-            $('#resultArea').show();
-        }
-    });
+    setTimeout(function(){
+        $('#loading').hide();
+        $('#results').show();
+    }, 4000);
 }
 
 $.validator.setDefaults( {
