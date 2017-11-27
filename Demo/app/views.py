@@ -14,13 +14,19 @@ def index():
 
 @app.route('/signup')
 def gosignup():
-    return render_template("signup.html")
+    head1 = "Tell us a bit more about your interests"
+    subhead1 = "We'll connect you to the professionals that match your need.<br/>Click the interest to choose, hold to learn more."
+    head2 = "Select what you are interested to learn"
+    subhead2 = "You can come back and edit any time"
+    return render_template("signup.html", head1=head1, subhead1=subhead1, head2=head2, subhead2=subhead2, type="mentee")
 
-
-@app.route('/mentormatch')
-def gomatchmentor():
-    return render_template("mentormatch.html")
-
+@app.route('/mentorsignup')
+def gomentorsignup():
+    head1 = "Tell us a bit more about your career field"
+    subhead1 = "We'll connect you to the mentees that you can help the most.<br/>Click the interest to choose, hold to learn more."
+    head2 = "Select what you are interested to teach"
+    subhead2 = "You can come back and edit any time"
+    return render_template("signup.html", head1=head1, subhead1=subhead1, head2=head2, subhead2=subhead2, type="mentor")
 
 @app.route('/events')
 def goevents():

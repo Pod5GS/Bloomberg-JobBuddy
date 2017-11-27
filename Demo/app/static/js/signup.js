@@ -194,13 +194,18 @@ function gotosignup() {
 }
 
 function recommend() {
-    $('#steps').hide();
-    $('#form').hide();
-    $('#matched').show();
-    setTimeout(function(){
-        $('#loading').hide();
-        $('#results').show();
-    }, 4000);
+    var type = $('#type').html();
+    if(type == "mentor"){
+        window.location.href = "videochat";
+    }else{
+        $('#steps').hide();
+        $('#form').hide();
+        $('#matched').show();
+        setTimeout(function(){
+            $('#loading').hide();
+            $('#results').show();
+        }, 4000);
+    }
 }
 
 $.validator.setDefaults( {

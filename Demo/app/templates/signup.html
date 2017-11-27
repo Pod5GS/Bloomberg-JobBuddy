@@ -91,6 +91,7 @@
     </div>
 </div>
 <!--/ Modal box-->
+<div style="display:none;" id="type">{{ type }}</div>
 <!--Step Indicator-->
 <div id="steps" class="container">
     <div class="stepwizard">
@@ -114,8 +115,10 @@
 <!-- Skillset -->
 <section id="skillsetsArea" >
     <div class="header-section text-center">
-        <h2>Tell us a bit more about your interests</h2>
-        <p>We'll connect you to the professionals that match you need.<br>Click the interest to choose, hold to learn more.</p>
+        <h2>
+            {{ head1 }}<br>
+        </h2>
+        <p>{{ subhead1 | safe}}</p>
         <hr class="bottom-line">
     </div>
     <div id="board" style="height: 450px;"></div>
@@ -130,8 +133,8 @@
 <!-- Skillset2 -->
 <section id="skillsetsArea2" style="display: none;">
     <div class="header-section text-center">
-        <h2>Select what you are interested in learning</h2>
-        <p>You can come back and edit any time</p>
+        <h2>{{ head2 }}</h2>
+        <p>{{ subhead2 }}</p>
         <hr class="bottom-line">
     </div>
     <div id="board2" style="height: 450px;"></div>
