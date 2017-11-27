@@ -14,15 +14,14 @@ var data = [
     {name: "Software", color: 0xffec4d},
     {name: "Writing blog posts", color: 0xffec4d},
     {name: "Mobile apps", color: 0xffec4d},
-    {name: "Writing blog posts", color: 0xffec4d},
-    {name: "Building a web stie", color: 0xffec4d},
+    {name: "Building a web site", color: 0xffec4d},
     {name: "Experience Design", color: 0xffec4d},
     {name: "Art", color: 0xffec4d},
-    {name: "Fasion", color: 0xffec4d},
+    {name: "Fashion", color: 0xffec4d},
     {name: "Games", color: 0xffec4d},
     {name: "Film", color: 0xffec4d},
     {name: "Business", color: 0xffec4d}
-]
+];
 var zoom = 100;
 var balls = [];
 var activedata = [];
