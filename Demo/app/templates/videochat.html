@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job Buddy</title>
-    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="description" content="Leading Online Mentoring Platform">
     <meta name="keywords"
           content="free mentoring service">
     <link rel="stylesheet" type="text/css"
@@ -290,8 +290,8 @@
 <section>
     <div class="container">
         <div class="row" style="display: table;width: 100%;">
-            <div id="renderer" class="col-md-6 col-xs-12" style="display: table-cell;height:50%;"></div>
-            <div class="col-md-6 col-xs-12" >
+            <div id="renderer" class="col-md-8 col-xs-12" style="display: table-cell; height: 560px;"></div>
+            <div class="col-md-4 col-xs-12" style="height: 560px; border: solid 1px black;">
                 <h4>Suggested Questions</h4>
                 <div id="questions">
 
@@ -359,8 +359,8 @@
 <script src="static/js/custom.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
 <script>
-    var videoheight = $('#chat').height();
-    $('#renderer').height(videoheight);
+//    var videoheight = $('#chat').height();
+//    $('#renderer').height(videoheight);
     $('#notes').append("- Check out a software called Sublime, it's a common script editor.\nthe url: www.sublime.com\n- I use Atom. this is more customizeble.\n- Making websites is more advanced than what I'm learning right now.\n- Finish the foundation course first, as I am a beginner in coding.");
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
     socket.on('my response', function(msg) {
