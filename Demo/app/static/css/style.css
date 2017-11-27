@@ -30,7 +30,7 @@ table {
 	border-spacing: 0;
 }
 .section-padding{
-	padding: 60px 0px;
+	padding: 30px 0px;
 }
 h1, h2, h3, h4, h5, h6{
     font-family: Open Sans, sans-serif;
@@ -116,7 +116,7 @@ Banner
     position: relative;
 }
 .banner-text{
-    margin-top: 250px;
+    margin-top: 200px;
 }
 .bg-color{
 	background-color: RGBA(12, 11, 11, 0.82);
@@ -138,7 +138,7 @@ Banner
 	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 45px;
 	color: #fff;
-	margin-top: 30px;
+	margin-bottom: 80px;
 }
 .quote .btn{
     background-color: white;

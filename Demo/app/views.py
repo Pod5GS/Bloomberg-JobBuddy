@@ -11,6 +11,10 @@ from services import getRecommendation
 def index():
     return render_template("index.html")
 
+@app.route('/mentorindex')
+def mentorindex():
+    return render_template("mentorindex.html")
+
 
 @app.route('/signup')
 def gosignup():
