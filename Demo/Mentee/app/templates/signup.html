@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Buddy</title>
+    <meta name="description" content="Leading Online Mentoring Platform">
+    <meta name="keywords"
+          content="free mentoring service">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/imagehover.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index"><img src="static/img/Logo.png" style="height: 50px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="mentormatch">Mentoring</a></li>
+                <li><a href="events">Events</a></li>
+                <li><a>Profile</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--/ Navigation bar-->
+<!--Modal box-->
+<div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content no 1-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center form-title">Login</h4>
+            </div>
+            <div class="modal-body padtrbl">
+
+                <div class="login-box-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+                    <div class="form-group">
+                        <form name="" id="loginForm">
+                            <div class="form-group has-feedback">
+                                <!----- username -------------->
+                                <input class="form-control" placeholder="Username" id="loginid" type="text"
+                                       autocomplete="off"/>
+                                <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                      id="span_loginid"></span>
+                                <!---Alredy exists  ! -->
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <!----- password -------------->
+                                <input class="form-control" placeholder="Password" id="loginpsw" type="password"
+                                       autocomplete="off"/>
+                                <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                      id="span_loginpsw"></span>
+                                <!---Alredy exists  ! -->
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="checkbox icheck">
+                                        <label>
+                                            <input type="checkbox" id="loginrem"> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button type="button" class="btn btn-green btn-block btn-flat"
+                                            onclick="userlogin()">Sign In
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--/ Modal box-->
+<div style="display:none;" id="type">{{ type }}</div>
+<!--Step Indicator-->
+<div id="steps" class="container">
+    <div class="stepwizard">
+        <div class="stepwizard-row">
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-primary btn-circle" id="step1">1</button>
+                <p>Mentoring<br>Interest</p>
+            </div>
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step2">2</button>
+                <p>Select<br>Skill</p>
+            </div>
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step3">3</button>
+                <p>Set Up<br>Profile</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Step Indicator-->
+<!-- Skillset -->
+<section id="skillsetsArea" >
+    <div class="header-section text-center">
+        <h2>
+            {{ head1 }}<br>
+        </h2>
+        <p>{{ subhead1 | safe}}</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board" style="height: 450px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotonextbubble()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset->
+<!-- Skillset2 -->
+<section id="skillsetsArea2" style="display: none;">
+    <div class="header-section text-center">
+        <h2>{{ head2 }}</h2>
+        <p>{{ subhead2 }}</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board2" style="height: 450px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotosignup()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset2->
+<!-- SignUp Form-->
+<section id="form" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="header-section text-center">
+                <h2>Be part of the Job Buddy Network</h2>
+                <p>You are only a few clicks away from meeting your mentors!</p>
+                <hr class="bottom-line">
+            </div>
+            <form id="signupForm" class="signupForm" action="" method="post">
+                <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control form" id="name" name="name" placeholder="Your Name*"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email*"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Your Password*"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="repwd" name="repwd" placeholder="Repeat Your Password*"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="language" name="language" placeholder="Other Language You Speak"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3 form-group">
+                        <!-- Button -->
+                        <button class="contact-form-button light-form-button oswald light" type="submit">Next</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+<!--/ SignUp Form-->
+<!-- Result-->
+<div id="matched" style="display:none;">
+    <!-- Online Mentor-->
+    <section id="onlinementor" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="header-section">
+                    <h2>Mentors Online Now</h2>
+                </div>
+                <hr>
+                <div id="loading" style="width: 100%" class="text-center">
+                    <img src="static/img/finding.png"/>
+                    <h4>We are matching you to the best possible mentors...</h4>
+                </div>
+                <div id="results" style="display:none;">
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor2.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Jack</h4>
+                            <h4>Web Developer</h4>
+                            <p>Google, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor3.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Marina</h4>
+                            <h4>Web Engineer</h4>
+                            <p>Facebook, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor1.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">Lexin</h4>
+                            <h4>Front-end Dev</h4>
+                            <p>Freelance, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="width: 50%; float: left;">
+                            <img src="static/img/mentor.jpg" alt="" class="img-thumbnail">
+                        </div>
+                        <div style="width:50%; float:right">
+                            <h4 class="ser-text">William</h4>
+                            <h4>CS student</h4>
+                            <p>Cornell Tech, NY</p>
+                            <p>Javascript, HTML</p>
+                            <a href="schedule">
+                                <button type="button" class="btn btn-green btn-block btn-flat">Connect</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!--/ Online Mentor-->
+    <!--Previous Mentor-->
+    <section id="offlinementor">
+        <div class="container">
+            <div class="row">
+                <div class="header-section">
+                    <h2>Previous Mentors</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+    <table style="border-collapse:collapse;table-layout:fixed;margin:auto;"
+           border="0">
+        <colgroup>
+            <col style="width:124px;">
+            <col style="width:6px;">
+            <col style="width:2px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:4px;">
+            <col style="width:3px;">
+            <col style="width:34px;">
+            <col style="width:119px;">
+            <col style="width:15px;">
+            <col style="width:19px;">
+            <col style="width:179px;">
+            <col style="width:426px;">
+            <col style="width:333px;">
+            <col style="width:40px;">
+            <col style="width:3px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:1px;">
+            <col style="width:128px;">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td colspan="8" style="width:175px;height:20px">­</td>
+            <td style="vertical-align:top;padding:0px;width:1091px;height:157px;" colspan="6"
+                rowspan="2">
+                <div style="display:block;opacity:0.4;width:1091px;height:157px;">
+                    <img src="static/img/79427693-AFFE-4440-ADA1-ECC9DD5445A4@2x.png"
+                         style="display:block;" width="1091" height="157" alt="Group 2">
+                </div>
+            </td>
+            <td colspan="6" style="width:174px;height:20px">­</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+</div>
+<!--/ Result-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.js'></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script src="static/js/signup.js"></script>
+</body>
+</html>

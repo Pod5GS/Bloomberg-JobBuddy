@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Buddy</title>
+    <meta name="description" content="Leading Online Mentoring Platform">
+    <meta name="keywords"
+          content="free mentoring service">
+
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/imagehover.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+<body>
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index"><img src="static/img/Logo.png" style="height: 50px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index">For Mentee</a></li>
+                <li><a href="mentorsignup">Mentor Sign up</a></li>
+                <li><a href="#" data-target="#login" data-toggle="modal">Login in</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--/ Navigation bar-->
+<!--Modal box-->
+<div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content no 1-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center form-title">Login</h4>
+            </div>
+            <div class="modal-body padtrbl">
+
+                <div class="login-box-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+                    <div class="form-group">
+                        <form name="" id="loginForm">
+                            <div class="form-group has-feedback">
+                                <!----- username -------------->
+                                <input class="form-control" placeholder="Username" id="loginid" type="text"
+                                       autocomplete="off"/>
+                                <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                      id="span_loginid"></span>
+                                <!---Alredy exists  ! -->
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <!----- password -------------->
+                                <input class="form-control" placeholder="Password" id="loginpsw" type="password"
+                                       autocomplete="off"/>
+                                <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                      id="span_loginpsw"></span>
+                                <!---Alredy exists  ! -->
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="checkbox icheck">
+                                        <label>
+                                            <input type="checkbox" id="loginrem"> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button type="button" class="btn btn-green btn-block btn-flat"
+                                            onclick="userlogin()">Sign In
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--/ Modal box-->
+<!--Banner-->
+<div class="banner" style="background: url('static/img/mentor-banner.png') no-repeat center top;background-size: cover;position: relative;">
+    <div class="container">
+        <div class="row">
+            <div class="banner-text">
+                <div class="intro-para quote">
+                    <p class="big-text" style="line-height: 35px;">Get Inspired by Awesome Mentors,<br>Move towards the Tech Industry</p>
+                    <a href="#footer" class="btn get-quote" style="font-weight: 900;">Become a Mentor ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Banner-->
+<div style="background:black; height:80px;" class="text-center">
+    <p style="color:white; font-size: large;position: relative;top: 30%">Open Mentoring Platform: Give back to the world by enlightening young minds with your experience</p>
+</div>
+<!--Feature-->
+<section id="feature" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="feature-info">
+                <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Productive Experience.</h4>
+                            <p>With a learn-by-doing and rewarding design, Job Buddy keep mentees motivated to learn more.</p>
+                        </div>
+                        <div class="fea-img pull-left">
+                            <img src="static/img/index-left.png" class="img-thumbnail" style="border:none; height:60px;"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Connect anytime.</h4>
+                            <p>Simply log in and wait to be connected during your spare time. No more back-and-forth scheduling.</p>
+                        </div>
+                        <div class="fea-img pull-left">
+                            <img src="static/img/index-mid.png" class="img-thumbnail" style="border:none; height:60px;"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Engage Online & In-person</h4>
+                            <p>Enjoy smooth and productive mentoring sessions with our help, even if you are not well prepared.</p>
+                        </div>
+                        <div class="fea-img pull-left">
+                            <img src="static/img/index-right.png" class="img-thumbnail" style="border:none; height:60px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ feature-->
+<!--Organisations-->
+<section id="organisations">
+    <div class="container">
+        <div class=" text-center" style="margin-bottom: 60px;">
+            <h4>Scroll down to see how it works</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom:10px;">
+                <div class="detail-info text-center">
+                    <h3>"I just fell good about doing this!<br>And Job Buddy makes this volunteering experience more enjoyable."</h3>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom: 10px;">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/55JYp9Y6L-I"></iframe>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4>See how developer John helped youth to get started in tech career.</h4>
+                <p>Mentors from Job Buddy gave her instructions of how to pick up the skills,<br> gave feedback on her learning progress and career development.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Faculity member-->
+<section id="faculity-member" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="pm-staff-profile-container">
+                    <div class="pm-staff-profile-image-wrapper text-center">
+                        <img src="static/img/group.png" alt="" class="img-thumbnail" style="border: none;height: 150px;"/>
+                    </div>
+                    <div class="pm-staff-profile-details text-center">
+                        <p class="pm-staff-profile-name">Great Mentors<br>Matched For You</p>
+                        <p class="pm-staff-profile-bio">Within Our abundant mentor networks, we will match you the mentors who share similar background, who speak same languages while they are professional in the skills you want to learn.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="pm-staff-profile-container">
+                    <div class="pm-staff-profile-image-wrapper text-center">
+                        <img src="static/img/cc.png" alt="" class="img-thumbnail" style="border: none;height: 150px;"/>
+                    </div>
+                    <div class="pm-staff-profile-details text-center">
+                        <p class="pm-staff-profile-name">Get Involved in both<br>Online and In-person</p>
+                        <p class="pm-staff-profile-bio">Parternerd with companies and organizations at New York, Job Buddy will introduce you to different meetup events and talent program. You will be invloved within the current tech industry, moving towards you career.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="pm-staff-profile-container">
+                    <div class="pm-staff-profile-image-wrapper text-center">
+                        <img src="static/img/robot.png" alt="" class="img-thumbnail" style="border: none;height: 150px;"/>
+                    </div>
+                    <div class="pm-staff-profile-details text-center">
+                        <p class="pm-staff-profile-name">A Smarter Way to<br>Learn with Mentors</p>
+                        <p class="pm-staff-profile-bio">Not only you can connect to many different mentors, you can also have a more efficient mentoring experience. Instant connection and resources gathering save your time and effort.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Faculity member-->
+<!--Contact-->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="header-section text-center">
+                <h2>Contact Us</h2>
+                <hr class="bottom-line">
+            </div>
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+                <div class="col-md-6 col-sm-6 col-xs-12 left">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name"
+                               data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                               data-rule="email" data-msg="Please enter a valid email"/>
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                               data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
+                        <div class="validation"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 right">
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="5" data-rule="required"
+                                  data-msg="Please write something for us" placeholder="Message"></textarea>
+                        <div class="validation"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <!-- Button -->
+                    <button type="submit" id="submit" name="submit"
+                            class="form contact-form-button light-form-button oswald light">SEND EMAIL
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+<!--/ Contact-->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery.easing.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/custom.js"></script>
+
+</body>
+
+</html>
