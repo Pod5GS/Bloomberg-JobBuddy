@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Buddy</title>
+    <meta name="description" content="Leading Online Mentoring Platform">
+    <meta name="keywords"
+          content="free mentoring service">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/imagehover.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+
+</head>
+<body>
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="static/img/Logo.png" style="height: 50px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="mentormatch">Mentoring</a></li>
+                <li><a href="events">Events</a></li>
+                <li><a>Profile</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--/ Navigation bar-->
+
+<!--Step Indicator-->
+<div id="steps" class="container">
+    <div class="stepwizard">
+        <div class="stepwizard-row">
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-primary btn-circle" id="step1">1</button>
+                <p>Mentoring<br>Interest</p>
+            </div>
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step2">2</button>
+                <p>Select<br>Skill</p>
+            </div>
+            <div class="stepwizard-step">
+                <button type="button" class="btn btn-default btn-circle" disabled="disabled" id="step3">3</button>
+                <p>Set Up<br>Profile</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Step Indicator-->
+<!-- Skillset -->
+<section id="skillsetsArea" >
+    <div class="header-section text-center">
+        <h2>Tell us a bit more about career field</h2>
+        <p>We'll connect you to the mentees that you can help te most.<br>Click the field to choose, hold to learn more.</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board" style="height: 450px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotonextbubble()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset->
+<!-- Skillset2 -->
+<section id="skillsetsArea2" style="display: none;">
+    <div class="header-section text-center">
+        <h2>Select what you are interested to teach</h2>
+        <p>You can come back and edit any time</p>
+        <hr class="bottom-line">
+    </div>
+    <div id="board2" style="height: 450px;"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-12 cl-md-offset-3 col-sm-offset-3" style="margin-bottom: 140px;">
+            <!-- Button -->
+            <button class="form contact-form-button light-form-button oswald light" onclick="gotosignup()";>Next</button>
+        </div>
+    </div>
+</section>
+<!--/ Skillset2->
+<!-- SignUp Form-->
+<section id="contact" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="header-section text-center">
+                <h2>Be part of the Job Buddy Network</h2>
+                <p>You are only a few clicks away from meeting your mentors!</p>
+                <hr class="bottom-line">
+            </div>
+            {% import "bootstrap/wtf.html" as wtf %}
+              <form class="form-signin" method="POST" action="/signup">
+                <h2 class="form-signin-heading">Sign Up</h2>
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.email) }}
+                {{ wtf.form_field(form.skill) }}    
+                {{ wtf.form_field(form.password) }}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+              </form>
+        </div>
+    </div>
+</section>
+<!--/ SignUp Form-->
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/p2.js/0.7.1/p2.js'></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script src="static/js/signup.js"></script>
+</body>
+</html>
